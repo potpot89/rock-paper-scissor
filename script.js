@@ -7,8 +7,6 @@ const playerChoice = prompt(
   `Let's play a game! Choose rock, paper or scissors`
 ).toLowerCase();
 
-console.log({ playerChoice });
-
 // player turn
 function playerTurn() {
   if (playerChoice === `rock`) {
@@ -37,7 +35,7 @@ const computerChoice = getComputerChoice();
 console.log(`Computer chose ${computerChoice}`);
 
 //function that plays a round
-function playRound(playerChoice, computerChoice) {
+function playRound() {
   if (playerChoice === computerChoice) {
     return `It's a tie!`;
   } else if (playerChoice === `rock` && computerChoice === `paper`) {
@@ -46,7 +44,9 @@ function playRound(playerChoice, computerChoice) {
     return `You Lose! Scissors beats paper!`;
   } else if (playerChoice === `scissors` && computerChoice === `rock`) {
     return `You Lose! Rock beats Scissors!`;
-  } else `You win! ${playerChoice} beats ${computerChoice}`;
+  } else {
+    return `You win! ${playerChoice} beats ${computerChoice}`;
+  }
 }
 
 console.log(playRound());
