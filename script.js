@@ -1,6 +1,55 @@
-// begin with a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play
+// prompt to initialize the game
 
-//Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+const playerName = prompt(`Hello, what's your name?`).toLowerCase();
+alert(`Nice to meet you ${playerName}`);
+
+const playerChoice = prompt(
+  `Let's play a game! Choose rock, paper or scissors`
+).toLowerCase();
+
+console.log({ playerChoice });
+
+// player turn
+function playerTurn() {
+  if (playerChoice === `rock`) {
+    return `${playerName} chose rock`;
+  } else if (playerChoice === `paper`) {
+    return `${playerName} chose paper`;
+  } else {
+    return `${playerName} chose scissors`;
+  }
+}
+console.log(playerTurn());
+
+//computer turn
+function getComputerChoice(computerChoice) {
+  Math.floor(Math.random() * 3);
+  if (computerChoice === 0) {
+    return `rock`;
+  } else if (computerChoice === 1) {
+    return `paper`;
+  } else {
+    return `scissors`;
+  }
+}
+
+const computerChoice = getComputerChoice();
+console.log(`Computer chose ${computerChoice}`);
+
+//function that plays a round
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) {
+    return `It's a tie!`;
+  } else if (playerChoice === `rock` && computerChoice === `paper`) {
+    return `You Lose! Paper beats rock!`;
+  } else if (playerChoice === `paper` && computerChoice === `scissor`) {
+    return `You Lose! Scissors beats paper!`;
+  } else if (playerChoice === `scissors` && computerChoice === `rock`) {
+    return `You Lose! Rock beats Scissors!`;
+  } else `You win! ${playerChoice} beats ${computerChoice}`;
+}
+
+console.log(playRound());
 
 //Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
 
